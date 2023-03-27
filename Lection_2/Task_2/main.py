@@ -1,0 +1,1 @@
+print(str(set(input("Input the line of elements, separating them by spaces: ").split())).strip('{}'))
