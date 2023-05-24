@@ -1,0 +1,10 @@
+{%extends "base.html"%}
+{%block title%}Register page{%endblock%}
+{% block content %}
+<h1>Register</h1>
+<form action="" method="POST">
+    <p><input type="text" name="username" placeholder="Enter your username">{% if wrongUsername or alreadyInUse %} ERROR: The form is empty or username already taken {% endif %}</p>
+    <p><input type="password" name="password" placeholder="Enter your password">{% if wrongPassword and not alreadyInUse %} ERROR: The form is empty {%endif%}</p>
+    <p><input type="submit" value="Register"></p>
+</form>
+{% endblock %}

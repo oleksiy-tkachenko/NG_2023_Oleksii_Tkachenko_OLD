@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+{%block title%}Login page{%endblock%}
+{% block content %}
+<h1>Login</h1>
+<form action="" method="POST">
+    <p>Username: <input type="text" name="username">{% if wrongUsername %} ERROR: The form is empty or username already taken {% endif %}</p>
+    <p>Password:  <input type="password" name="password">{% if wrongPassword %} ERROR: The form is empty {%endif%}</p>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% if nonExistantUser and not(wrongUsername or wrongPassword) %}
+    <p>ERROR: User with this name does not exist</p>
+{%endif%}
+{% if wrongData and not(wrongUsername or wrongPassword) and not nonExistantUser %}
+    <p>ERROR: Entered username or password is wrong</p>
+{% endif %}
+{% endblock %}
